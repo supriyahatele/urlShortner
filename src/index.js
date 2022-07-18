@@ -26,9 +26,15 @@ app.use('/', route)
 //     if (e.message == "Bad Request") return res.status(400).send({ error: e.message });
 
 // })
+const serverDetails= {
+    runningPort: process.env.PORT || 3000
+}
 
-app.listen(process.env.PORT || 4001, function () {
-    console.log('Express app running on port ' + (process.env.PORT || 3000))
+app.listen(serverDetails.runningPort, function () {
+    console.log('Express app running on port ' + (serverDetails.runningPort))
 });
+
+module.exports.serverDetails = serverDetails
+
 
 

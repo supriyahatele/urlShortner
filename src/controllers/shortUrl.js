@@ -1,6 +1,8 @@
 const shortid = require('shortid');
 // const validUrl = require('valid-url');
 const urlModel = require("../model/urlModel")
+const server = require("../index")
+
 
 
 // let linkCheck = /(https?:\/\/.*\.)/i
@@ -21,7 +23,9 @@ const createShortUrl = async function (req, res) {
 
         const urlCode = shortid.generate(longUrl)
 
-        const shortUrl = "http://localhost:3000/"+ urlCode
+        let port = server.serverDetails.runningPort
+
+        const shortUrl = `http://localhost:${port}/${urlCode}`
 
         const data = { longUrl, shortUrl, urlCode }
 
