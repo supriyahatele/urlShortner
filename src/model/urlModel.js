@@ -20,6 +20,7 @@ const urlschema = new mongoose.Schema({
         require:true,
         unique:true,
         trim:true,
+        lowercase: true
     }
 
 
