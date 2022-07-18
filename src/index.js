@@ -27,11 +27,11 @@ app.use('/', route)
 
 // })
 const serverDetails= {
-    runningPort: process.env.PORT || 4000
+    runningPort: process.env.PORT || 3000
 }
 
 app.listen(serverDetails.runningPort, function () {
-    console.log('Express app running on port ' + (serverDetails.localPort))
+    console.log('Express app running on port ' + (serverDetails.runningPort))
 });
 
 module.exports.serverDetails = serverDetails
