@@ -1,0 +1,19 @@
+{
+  "name": "urlshortner",
+  "version": "1.0.0",
+  "description": "4th project in radon functionup",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bidipta-BG/urlShortner.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bidipta-BG/urlShortner/issues"
+  },
+  "homepage": "https://github.com/Bidipta-BG/urlShortner#readme"
+}
