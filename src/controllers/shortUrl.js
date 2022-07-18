@@ -22,7 +22,8 @@ const createShortUrl = async function (req, res) {
         if (!linkCheck.test(longUrl)) return res.status(400).send({ status: false, message: "Invalid URL. Please enter valid URL" })
 
         const urlCode = shortid.generate(longUrl)
-        let port = server.serverDetails.localPort
+
+        let port = server.serverDetails.runningPort
 
         const shortUrl = "http://localhost:"+port+"/"+ urlCode
 
