@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Bidipta-BG/urlShortner/issues"
   },
-  "homepage": "https://github.com/Bidipta-BG/urlShortner#readme"
+  "homepage": "https://github.com/Bidipta-BG/urlShortner#readme",
+  "dependencies": {
+    "mongoose": "^6.4.4"
+  }
 }
