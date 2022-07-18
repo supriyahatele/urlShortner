@@ -25,7 +25,7 @@ const createShortUrl = async function (req, res) {
 
         let port = server.serverDetails.runningPort
 
-        const shortUrl = "http://localhost:"+port+"/"+ urlCode
+        const shortUrl = `http://localhost:${port}/ urlCode`
 
         const data = { longUrl, shortUrl, urlCode }
 
