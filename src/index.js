@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: true }));
+
 
 
 let url = "mongodb+srv://supriyahatele:vE25ShJqu2IFbCtY@cluster0.qldb2.mongodb.net/group72Database"
@@ -27,7 +27,7 @@ app.use('/', route)
 
 // })
 
-app.listen(process.env.PORT || 4001, function () {
+app.listen(process.env.PORT || 3000, function () {
     console.log('Express app running on port ' + (process.env.PORT || 3000))
 });
 

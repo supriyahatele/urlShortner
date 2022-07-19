@@ -1,10 +1,11 @@
 const shortid = require('shortid');
-// const validUrl = require('valid-url');
 const urlModel = require("../model/urlModel")
 
 
-// let linkCheck = /(https?:\/\/.*\.)/i
+
 let linkCheck = /^https?\:\/\/([a-zA-Z0-9]+\.)?[a-zA-Z0-9]+\.[a-zA-Z0-9]+\/?[\w\/\-\.\_\~\!\$\&\'\(\)\*\+\,\;\=\:\@\%]+?$/
+
+//-----------------------------------------------------------------------------------------------------------------------------
 
 const createShortUrl = async function (req, res) {
     try {
@@ -16,7 +17,6 @@ const createShortUrl = async function (req, res) {
         const existingURL= await urlModel.findOne({longUrl:longUrl})
         if (existingURL) return res.status(400).send({ status: false, message: "URL already exists" })
 
-        // if (!validUrl.isUri(longUrl)) return res.status(400).send({ status: false, message: " Please enter valid URL" })
         if (!linkCheck.test(longUrl)) return res.status(400).send({ status: false, message: "Invalid URL. Please enter valid URL" })
 
         const urlCode = shortid.generate(longUrl)
@@ -41,7 +41,7 @@ const createShortUrl = async function (req, res) {
     }
 }
 
-
+//----------------------------------------------------------------------------------------------------------------------
 
 const getUrl = async function (req, res) {
     try {
@@ -58,5 +58,7 @@ const getUrl = async function (req, res) {
         return res.status(500).send({ status: false, error: err.message })
     }
 }
+
+
 
 module.exports = { createShortUrl, getUrl }
