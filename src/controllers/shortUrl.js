@@ -71,14 +71,19 @@ const getUrl = async function (req, res) {
     try {
 
         const urlCode = req.params.urlCode
-
+        let urlData = await GET_ASYNC(urlCode)
+        // console.log(urlData)
+        // console.log(typeof(urlData))
+        if(urlData) {
+         res.status(302).send(urlData)
+       } else {
         let getData = await urlModel.findOne({ urlCode: urlCode }).select({longUrl:1, _id:0})
-
         if (!getData) return res.status(404).send({ status: false, message: "No data found with this urlCode" })
+        await SET_ASYNC(urlCode, JSON.stringify(getData))
    
         // return res.status(302).send({ status: true, data: `Found. Redirecting to ${getData.longUrl}`})
         return res.status(302).redirect(getData.longUrl)
-
+       }
 
     } catch (err) {
         return res.status(500).send({ status: false, error: err.message })
