@@ -8,7 +8,7 @@ const { promisify } = require("util");
 //Connect to redis
 const redisClient = redis.createClient(
   19418,
-  "redis-19418.c212.ap-south-1-1.ec2.cloud.redislabs.com",
+  "redis-19418.c212.ap-south-1-1.ec2.cloud.redislabs.com", 
   { no_ready_check: true }
 );
 redisClient.auth("K9OxQeQuWSr47H7f8z0iUEeSi4kuEy9Z", function (err) {
@@ -72,10 +72,10 @@ const getUrl = async function (req, res) {
 
         const urlCode = req.params.urlCode
         let urlData = await GET_ASYNC(urlCode)
-        // console.log(urlData)
-        // console.log(typeof(urlData))
         if(urlData) {
-         res.status(302).send(urlData)
+          let obj=JSON.parse(urlData)
+          // console.log(obj.longUrl)
+          return res.status(302).redirect(obj.longUrl)
        } else {
         let getData = await urlModel.findOne({ urlCode: urlCode }).select({longUrl:1, _id:0})
         if (!getData) return res.status(404).send({ status: false, message: "No data found with this urlCode" })
