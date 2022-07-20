@@ -7,14 +7,14 @@ const { promisify } = require("util");
 
 //Connect to redis
 const redisClient = redis.createClient(
-  13190,
-  "redis-13190.c301.ap-south-1-1.ec2.cloud.redislabs.com",
+  19418,
+  "redis-19418.c212.ap-south-1-1.ec2.cloud.redislabs.com",
   { no_ready_check: true }
 );
-redisClient.auth("gkiOIPkytPI3ADi14jHMSWkZEo2J5TDG", function (err) {
+redisClient.auth("K9OxQeQuWSr47H7f8z0iUEeSi4kuEy9Z", function (err) {
   if (err) throw err;
 });
-
+//redis-19418.c212.ap-south-1-1.ec2.cloud.redislabs.com:19418
 redisClient.on("connect", async function () {
   console.log("Connected to Redis..");
 });
