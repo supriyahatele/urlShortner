@@ -6,8 +6,6 @@ const app = express();
 
 app.use(bodyParser.json());
 
-
-
 let url = "mongodb+srv://supriyahatele:vE25ShJqu2IFbCtY@cluster0.qldb2.mongodb.net/group72Database"
 mongoose.connect(url, {
     useNewUrlParser: true
@@ -19,16 +17,11 @@ mongoose.connect(url, {
 app.use('/', route)
 
 
-
-const serverDetails= {
-    runningPort: process.env.PORT || 4000
-}
-
-app.listen(serverDetails.runningPort, function () {
-    console.log('Express app running on port ' + (serverDetails.runningPort))
+app.listen( process.env.PORT || 3000, function () {
+    console.log('Express app running on port ' + (process.env.PORT || 3000))
 });
 
-module.exports.serverDetails = serverDetails
+
 
 
 
